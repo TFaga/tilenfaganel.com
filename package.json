@@ -1,0 +1,29 @@
+{
+  "name": "tilenfaganel.com",
+  "description": "Personal blog regarding all things in Tech, Web and Software Engineering.",
+  "version": "1.0.0",
+  "author": "Tilen Faganel <tilen.faganel@me.com>",
+  "dependencies": {
+    "gatsby": "^1.9.241",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "Tilen Faganel",
+    "blog",
+    "portfolio",
+    "gatsby",
+    "personal"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.11.1"
+  }
+}
