@@ -1,10 +1,8 @@
-import React, { Component } from "react";
-import Helmet from "react-helmet";
+import React, { Component } from 'react'
+import Helmet from 'react-helmet'
 
 class BlogPostTemplate extends Component {
-
   render() {
-
     const post = this.props.data.markdownRemark
 
     return (
@@ -12,7 +10,10 @@ class BlogPostTemplate extends Component {
         <Helmet title={`CodeStack - ${post.frontmatter.title}`} />
         <div className="blog-post">
           <h1>{post.frontmatter.title}</h1>
-          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </div>
       </div>
     )

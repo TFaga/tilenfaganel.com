@@ -20,8 +20,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 
     const value = createFilePath({ node, getNode, basePath: 'posts' })
 
-    console.log(value)
-
     const match = BLOG_POST_SLUG_REGEX.exec(value)
     const year = match[1]
     const month = match[2]

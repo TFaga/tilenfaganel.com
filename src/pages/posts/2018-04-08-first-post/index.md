@@ -2,6 +2,8 @@
 title: "First Post"
 date: 2018-04-08
 author: tfaga
+image: "cover.jpg"
+timeToRead: 1
 ---
 
 Oooooh-weeee, my first blog post!
