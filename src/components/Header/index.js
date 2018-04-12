@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import { Flex, Box } from 'rebass'
+import { Flex } from 'grid-styled'
 import styled from 'styled-components'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import faGithub from '@fortawesome/fontawesome-free-brands/faGithub'
+
+import { InsideLink, OutsideLink, Span } from '../Primitives'
 
 const Nav = Flex.extend`
   min-height: 60px;
@@ -17,17 +18,13 @@ const NavItem = Flex.extend`
   align-items: center;
 `
 
-const BrandItem = NavItem.extend`
-  border-right: 0px solid ${props => props.theme.colors.gray3};
-`
-
-const NavLink = styled(Link)`
-  color: ${props => props.theme.main.textColor};
+const NavLink = InsideLink.extend`
+  color: ${props => props.theme.colors.text};
 
   :hover,
   :active,
   :focus {
-    color: ${props => props.theme.colors.gray9};
+    color: ${props => props.theme.colors.text};
     text-decoration: none;
   }
 `
@@ -36,22 +33,22 @@ const BrandLink = NavLink.extend`
   font-weight: bold;
 `
 
-const ExternalNavLink = styled.a`
-  color: ${props => props.theme.main.textColor};
+const ExternalNavLink = styled(OutsideLink)`
+  color: ${props => props.theme.colors.text};
 
   :hover,
   :active,
   :focus {
-    color: ${props => props.theme.colors.gray9};
+    color: ${props => props.theme.colors.text};
     text-decoration: none;
   }
 `
 
 const Header = ({ me }) => (
   <Nav px={2} mx="auto">
-    <BrandItem p={2} fontSize={4}>
-      <BrandLink to="/">Tilen Faganel</BrandLink>
-    </BrandItem>
+    <NavItem p={2} fontSize={4}>
+      <BrandLink to="/">Tilen <Span color='blue'>Faganel</Span></BrandLink>
+    </NavItem>
     <NavItem p={2} ml="auto">
       <NavLink to="/">Posts</NavLink>
     </NavItem>
