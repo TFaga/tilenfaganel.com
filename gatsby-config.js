@@ -35,6 +35,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 720,
+              quality: 80,
             },
           },
           `gatsby-remark-prismjs`,
@@ -44,6 +45,29 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Tilen Faganel",
+        short_name: "Tilen Faganel",
+        start_url: "/",
+        background_color: "#ffffff",
+        theme_color: "#003399",
+        display: "minimal-ui",
+        icons: [
+          {
+            src: `/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
