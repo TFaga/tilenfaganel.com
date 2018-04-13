@@ -218,7 +218,7 @@ class BlogPostTemplate extends Component {
             <Box fontSize={0} mb={4} color="textLight">
               <em>By {post.frontmatter.author.name}</em>
             </Box>
-            <Box mb={4}>
+            <Box mb={4} mx={-4}>
               <Img
                 sizes={post.frontmatter.image.childImageSharp.sizes}
                 alt="cover"
@@ -320,7 +320,7 @@ export const pageQuery = graphql`
             resize(width: 1200, quality: 100) {
               src
             }
-            sizes(maxWidth: 720, quality: 100) {
+            sizes(maxWidth: 784, quality: 100) {
               ...GatsbyImageSharpSizes
             }
           }

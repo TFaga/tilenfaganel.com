@@ -3,7 +3,7 @@ import { Box } from 'grid-styled'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faRssSquare from '@fortawesome/fontawesome-free-solid/faRssSquare'
 
-import { Input, Button, InsideLink } from '../Primitives'
+import { Input, Button, InsideLink, Span } from '../Primitives'
 
 const SubscribeSection = Box.extend`
   text-align: center;
@@ -19,21 +19,25 @@ class Subscribe extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      data: {},
+      submitted: false,
+      error: false
+    }
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
   }
 
   handleSubmit = e => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'subscribe', ...this.state }),
+      body: encode({ 'form-name': 'subscribe', ...this.state.data }),
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error))
+      .then(() => this.setState({ submitted: true, error: false }))
+      .catch(error => this.setState({ error: true }))
 
     e.preventDefault()
   }
@@ -49,7 +53,7 @@ class Subscribe extends Component {
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
         >
-          <input name="bot-field" style={{display: 'none'}} />
+          <input name="bot-field" hidden />
           <Input
             type="email"
             name="email"
@@ -57,10 +61,23 @@ class Subscribe extends Component {
             placeholder="you@email.com"
             width={250}
             onChange={this.handleChange}
+            disabled={this.state.submitted}
           />
-          <Button type="submit" ml={[0, 3]} mt={[3, 0]}>
+
+          <Button type="submit" ml={[0, 3]} mt={[3, 0]} disabled={this.state.submitted}>
             Subscribe
           </Button>
+
+          { this.state.submitted &&
+            <Box fontSize={0} pt={1}>
+              <Span color='green'>Subscribed!</Span>
+            </Box>
+          }
+          { this.state.error &&
+            <Box fontSize={0} pt={1}>
+              <Span color='red'>An error occured!</Span>
+            </Box>
+          }
         </form>
         <InsideLink to="/feed.xml">
           <FontAwesomeIcon icon={faRssSquare} size="lg" />

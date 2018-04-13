@@ -9,6 +9,8 @@ export const Input = styled.input`
   border-radius: 4px;
   border-width: 0;
   vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
 
   &:focus {
     outline: none;

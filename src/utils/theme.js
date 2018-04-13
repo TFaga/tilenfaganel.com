@@ -10,7 +10,9 @@ const colors = {
   border: '#ddd',
   white: '#fff',
   blue: '#039',
-  blueLight: '#2d8fd5' 
+  blueLight: '#2d8fd5',
+  green: '#15c578',
+  red: '#b00e23'
 }
 
 const radii = [

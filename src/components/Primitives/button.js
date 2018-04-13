@@ -22,7 +22,8 @@ export const Button = styled.button`
   }
 
   &:disabled {
-    opacity: 1/4
+    opacity: .25;
+    cursor: default;
   }
 `
 
