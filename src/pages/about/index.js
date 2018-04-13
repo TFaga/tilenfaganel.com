@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
 
@@ -33,6 +34,8 @@ const AwardsSection = Flex.extend`
 
 const AboutPage = ({ data: { me, awardDuke } }) => (
   <AboutMeSection>
+    <Helmet title={`About`}>
+    </Helmet>
     <Box width={[1, 8/12]} mx='auto'>
 
       <AboutMeHeader flexWrap={'wrap-reverse'}>
