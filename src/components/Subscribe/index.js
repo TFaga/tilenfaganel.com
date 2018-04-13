@@ -60,21 +60,22 @@ class Subscribe extends Component {
             required
             placeholder="you@email.com"
             width={250}
+            mb={3}
             onChange={this.handleChange}
             disabled={this.state.submitted}
           />
 
-          <Button type="submit" ml={[0, 3]} mt={[3, 0]} disabled={this.state.submitted}>
+          <Button type="submit" ml={[3]} mb={3} disabled={this.state.submitted}>
             Subscribe
           </Button>
 
           { this.state.submitted &&
-            <Box fontSize={0} pt={1}>
+            <Box fontSize={0}>
               <Span color='green'>Subscribed!</Span>
             </Box>
           }
           { this.state.error &&
-            <Box fontSize={0} pt={1}>
+            <Box fontSize={0}>
               <Span color='red'>An error occured!</Span>
             </Box>
           }
