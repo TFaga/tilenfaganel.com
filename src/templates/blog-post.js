@@ -193,7 +193,7 @@ class BlogPostTemplate extends Component {
     return (
       <div>
         <Helmet title={`${post.frontmatter.title}`}>
-        <meta name="description" content={post.excerpt} />
+          <meta name="description" content={post.excerpt} />
           <meta property="og:title" content={post.frontmatter.title} />
           <meta property="og:description" content={post.excerpt} />
           <meta property="og:type" content="article" />
