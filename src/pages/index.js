@@ -106,7 +106,7 @@ export const pageQuery = graphql`
             timeToRead
             image {
               childImageSharp {
-                resolutions(width: 224, height: 118, cropFocus: CENTER, quality: 100) {
+                resolutions(width: 224, height: 118, cropFocus: CENTER, quality: 80) {
                   ...GatsbyImageSharpResolutions
                 }
               }

@@ -106,7 +106,7 @@ export const pageQuery = graphql`
 
     awardDuke: file(relativePath: { eq: "about/java-dukes-choice.jpg" }) {
       childImageSharp {
-        resolutions(width: 150, quality: 100) {
+        resolutions(width: 150, quality: 80) {
           ...GatsbyImageSharpResolutions
         }
       }

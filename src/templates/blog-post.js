@@ -317,10 +317,10 @@ export const pageQuery = graphql`
         rawDate: date
         image {
           childImageSharp {
-            resize(width: 1200, quality: 100) {
+            resize(width: 1200, quality: 80) {
               src
             }
-            sizes(maxWidth: 784, quality: 100) {
+            sizes(maxWidth: 784, quality: 80) {
               ...GatsbyImageSharpSizes
             }
           }
