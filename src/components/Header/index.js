@@ -53,7 +53,7 @@ const Header = ({ me }) => (
       <NavLink to="/">Posts</NavLink>
     </NavItem>
     <NavItem p={2} pr={3}>
-      <NavLink to="/">About</NavLink>
+      <NavLink to="/about">About</NavLink>
     </NavItem>
     <NavItem p={2}>
       <ExternalNavLink href={`https://twitter.com/${me.twitter}`} target='_blank'>

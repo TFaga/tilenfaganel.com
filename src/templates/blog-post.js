@@ -9,9 +9,9 @@ import faFacebook from '@fortawesome/fontawesome-free-brands/faFacebook'
 import faRedditSquare from '@fortawesome/fontawesome-free-brands/faRedditSquare'
 import faArrowLeft from '@fortawesome/fontawesome-free-solid/faArrowLeft'
 import faArrowRight from '@fortawesome/fontawesome-free-solid/faArrowRight'
-import faRssSquare from '@fortawesome/fontawesome-free-solid/faRssSquare'
 
-import { Heading, ShareLink, InsideLink, Image, Input, Button } from '../components/Primitives'
+import { Heading, ShareLink, InsideLink, Image } from '../components/Primitives'
+import Subscribe from '../components/Subscribe'
 
 const PostContent = Box.extend`
   line-height: 1.55;
@@ -153,11 +153,10 @@ const SharePostSection = Box.extend`
 
 const PostAuthorSection = Flex.extend`
   border-top: 1px solid ${props => props.theme.colors.divider};
-`
 
-const SubscribeSection = Box.extend`
-  text-align: center;
-  border-top: 1px solid ${props => props.theme.colors.divider};
+  @media screen and (max-width: ${props => props.theme.breakpoints[0]}) {
+    text-align: center;
+  }
 `
 
 const PostPaginationSection = Flex.extend`
@@ -210,7 +209,7 @@ class BlogPostTemplate extends Component {
           <meta property="article:modified_time" content={post.frontmatter.rawDate} />
         </Helmet>
         <Flex>
-          <Box width={3 / 4} ml="12.5%">
+          <Box width={[1, 3 / 4]} ml={[0, "12.5%"]}>
             <Box fontSize={0}>
               {post.frontmatter.date}&nbsp; • &nbsp;
               {post.frontmatter.timeToRead} minute read
@@ -243,11 +242,11 @@ class BlogPostTemplate extends Component {
               </ShareLink>
             </SharePostSection>
 
-            <PostAuthorSection fontSize={0} mt={4} pt={4} px={5}>
-              <Box flex='0 0 auto'>
+            <PostAuthorSection fontSize={0} mt={4} pt={4} px={[0, 5]} flexWrap={['wrap', 'nowrap']}>
+              <Box flex={['0 0 100%', '0 0 auto']}>
                 <AuthorImage borderRadius={2} src={`//www.gravatar.com/avatar/${post.frontmatter.author.gravatar}?s=140`} />
               </Box>
-              <Box ml={4}>
+              <Box ml={[0, 4]}>
                 <Heading.h4 mb={2}>{post.frontmatter.author.name}</Heading.h4>
                 <p>{post.frontmatter.author.bio}</p>
               </Box>
@@ -288,18 +287,7 @@ class BlogPostTemplate extends Component {
               </PostPaginationSection>
             }
 
-            <SubscribeSection mt={4} pt={4}>
-              <p>
-                Don't miss out!
-              </p>
-              <form>
-                <Input type="email" name="email" placeholder="you@email.com" width={250} />
-                <Button type="submit" ml={3}>Subscribe</Button>
-              </form>
-              <InsideLink to='/feed.xml'>
-                <FontAwesomeIcon icon={faRssSquare} size="lg" />
-              </InsideLink>
-            </SubscribeSection>
+            <Subscribe />
           </Box>
         </Flex>
       </div>
@@ -329,10 +317,10 @@ export const pageQuery = graphql`
         rawDate: date
         image {
           childImageSharp {
-            resize(width: 1200) {
+            resize(width: 1200, quality: 100) {
               src
             }
-            sizes(maxWidth: 720) {
+            sizes(maxWidth: 720, quality: 100) {
               ...GatsbyImageSharpSizes
             }
           }

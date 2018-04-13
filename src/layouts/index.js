@@ -37,7 +37,7 @@ const TemplateWrapper = ({ children, data, location }) => (
         <meta property="article:section" content="blog technology software" />
       </Helmet>
       <Header me={data.me} />
-      <Container pt={[2, 5]} px={4}>
+      <Container pt={[4, 5]} px={4}>
         {children()}
       </Container>
       <Footer />
