@@ -79,7 +79,7 @@ const AboutPage = ({ data: { me, awardDuke } }) => (
         <Box width={[1, 1/3]} mx='auto' mb={4}>
           <Img
             resolutions={awardDuke.childImageSharp.resolutions}
-            alt="cover"
+            alt="dukes-choice-award"
           />
           <span>Dukes Choice Award</span>
         </Box>
