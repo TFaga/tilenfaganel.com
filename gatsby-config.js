@@ -25,6 +25,13 @@ module.exports = {
         name: 'pages',
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/layouts`,
+        name: 'layouts',
+      },
+    },
     `gatsby-transformer-yaml`,
     `gatsby-transformer-sharp`,
     {

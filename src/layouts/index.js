@@ -30,9 +30,9 @@ const TemplateWrapper = ({ children, data, location }) => (
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={data.me.name} />
         <meta property="og:url" content={`${data.site.siteMetadata.siteUrl}${location.pathname}`} />
-        <meta property="og:image" content={`https://google.com`}/>
+        <meta property="og:image" content={data.defaultDover.childImageSharp.resize.src}/>
         <meta name="twitter:site" content={`@${data.me.twitter}`} />
-        <meta name="twitter:image" content={`https://google.com`} />
+        <meta name="twitter:image" content={data.defaultDover.childImageSharp.resize.src} />
         <meta property="article:publisher" content={`https://facebook.com/${data.me.facebook}`} />
         <meta property="article:section" content="blog technology software" />
       </Helmet>
@@ -66,6 +66,13 @@ export const pageQuery = graphql`
       twitter
       github
       facebook
+    }
+    defaultDover: file(relativePath: { eq: "default-cover.png" }) {
+      childImageSharp {
+        resize(width: 1200, quality: 80) {
+          src
+        }
+      }
     }
   }
 `
