@@ -19,7 +19,8 @@ exports.onRenderBody = ({ setHeadComponents }) => {
           __html: 
           `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${config.siteMetadata.gaTrackingId}');`,
+          gtag('config', '${config.siteMetadata.gaTrackingId}');
+          gtag('config', '${config.siteMetadata.gaTrackingId}', { 'anonymize_ip': true });`,
         }}
       />,
     ])
