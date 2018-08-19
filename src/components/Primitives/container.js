@@ -1,5 +1,4 @@
 import { Box } from 'grid-styled'
-import styled from 'styled-components'
 import { maxWidth, space } from 'styled-system'
 
 export const Container = Box.extend`

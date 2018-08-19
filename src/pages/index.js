@@ -3,7 +3,7 @@ import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
 import styled from 'styled-components'
 
-import { OutsideLink, InsideLink, Text, Heading, Image } from '../components/Primitives'
+import { InsideLink, Text, Heading, Image } from '../components/Primitives'
 import ContactMe from '../components/ContactMe'
 
 const ProfileSection = Box.extend`

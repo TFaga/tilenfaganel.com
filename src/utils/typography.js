@@ -1,5 +1,4 @@
 import Typography from 'typography'
-import CodePlugin from "typography-plugin-code"
 
 import theme from './theme'
 

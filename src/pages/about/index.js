@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
 
-import { Image, InsideLink, Link, Input, Button } from '../../components/Primitives'
+import { Image, Link } from '../../components/Primitives'
 import ContactMe from '../../components/ContactMe'
 import Subscribe from '../../components/Subscribe'
 
