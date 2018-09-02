@@ -62,8 +62,8 @@ const AboutPage = ({ data: { me, awardDuke, certAwsDa, certAwsSaa, pubJavaEe8Mic
       </AboutMeHeader>
       
       <p>
-        I’m a lead software engineer and consultant who specialises in designing Java and cloud-native (API) design.
-        I plan, create and implement complex and robust software architectures for cloud and integration solutions
+        I’m a lead software engineer and consultant who specialises in designing cloud-native solutions.
+        I plan, create and implement complex and robust software architectures for cloud and integration demands
         that have helped numerous enterprises with developing advanced cloud-native solutions.
       </p>
       <p>
