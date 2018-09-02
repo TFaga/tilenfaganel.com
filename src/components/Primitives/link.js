@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import tag from 'clean-tag'
 
-export const Link = styled(tag.a)`
+export const Link = styled.a`
   ${space}
 `
 

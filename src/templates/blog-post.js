@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
+import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
@@ -13,7 +14,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 import { Heading, ShareLink, InsideLink, Image } from '../components/Primitives'
 import Subscribe from '../components/Subscribe'
 
-const PostContent = Box.extend`
+const PostContent = styled(Box)`
   line-height: 1.55;
 
   img {
@@ -142,16 +143,16 @@ const PostContent = Box.extend`
   }
 `
 
-const AuthorImage = Image.extend`
+const AuthorImage = styled(Image)`
   height: 60px;
   width: 60px;
 `
 
-const SharePostSection = Box.extend`
+const SharePostSection = styled(Box)`
   text-align: center;
 `
 
-const PostAuthorSection = Flex.extend`
+const PostAuthorSection = styled(Flex)`
   border-top: 1px solid ${props => props.theme.colors.divider};
 
   @media screen and (max-width: ${props => props.theme.breakpoints[0]}) {
@@ -159,11 +160,11 @@ const PostAuthorSection = Flex.extend`
   }
 `
 
-const PostPaginationSection = Flex.extend`
+const PostPaginationSection = styled(Flex)`
   border-top: 1px solid ${props => props.theme.colors.divider};
 `
 
-const PreviousPostTitle = Box.extend`
+const PreviousPostTitle = styled(Box)`
   margin-left: -1.2rem;
 
   svg {
@@ -171,11 +172,11 @@ const PreviousPostTitle = Box.extend`
   }
 `
 
-const NextPostSection = Box.extend`
+const NextPostSection = styled(Box)`
   text-align: right;
 `
 
-const NextPostTitle = Box.extend`
+const NextPostTitle = styled(Box)`
   margin-right: -1.2rem;
 
   svg {

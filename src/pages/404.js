@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box } from 'grid-styled'
+import styled from 'styled-components'
 
 import { InsideLink } from '../components/Primitives'
 
-const NotFoundSection = Box.extend`
+const NotFoundSection = styled(Box)`
   text-align: center;
 `
 

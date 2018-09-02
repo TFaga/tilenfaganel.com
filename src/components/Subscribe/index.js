@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Box } from 'grid-styled'
+import styled from 'styled-components'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRssSquare } from '@fortawesome/free-solid-svg-icons/faRssSquare'
 
 import { Input, Button, InsideLink, Span } from '../Primitives'
 
-const SubscribeSection = Box.extend`
+const SubscribeSection = styled(Box)`
   text-align: center;
   border-top: 1px solid ${props => props.theme.colors.divider};
 `

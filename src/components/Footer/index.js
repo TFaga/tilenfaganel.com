@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box } from 'grid-styled'
+import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode } from '@fortawesome/free-solid-svg-icons/faCode'
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart'
@@ -7,11 +8,11 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee'
 
 import { Container, Span } from '../Primitives'
 
-const FooterContent = Box.extend`
+const FooterContent = styled(Box)`
   text-align: center;
 `
 
-const FooterContentTop = Box.extend`
+const FooterContentTop = styled(Box)`
   border-bottom: 1px solid ${props => props.theme.colors.divider};
 `
 

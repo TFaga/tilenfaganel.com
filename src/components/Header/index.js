@@ -8,17 +8,17 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 
 import { InsideLink, OutsideLink, Span } from '../Primitives'
 
-const Nav = Flex.extend`
+const Nav = styled(Flex)`
   min-height: 60px;
   max-width: 1024px;
 `
 
-const NavItem = Flex.extend`
+const NavItem = styled(Flex)`
   display: inline-flex;
   align-items: center;
 `
 
-const NavLink = InsideLink.extend`
+const NavLink = styled(InsideLink)`
   color: ${props => props.theme.colors.text};
 
   :hover,
@@ -29,7 +29,7 @@ const NavLink = InsideLink.extend`
   }
 `
 
-const BrandLink = NavLink.extend`
+const BrandLink = styled(NavLink)`
   font-weight: bold;
 `
 

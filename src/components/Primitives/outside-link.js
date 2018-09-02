@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import tag from 'clean-tag'
 
-const OutsideLinkBase = (props) => (
-  <tag.a
+const OutsideLinkBase = styled.a`
+  ${space}
+`
+export const OutsideLink = (props) => (
+  <OutsideLinkBase
     {...props}
     onClick={e => {
       let redirect = true
@@ -43,10 +45,6 @@ const OutsideLinkBase = (props) => (
     }}
   />
 )
-
-export const OutsideLink = styled(OutsideLinkBase)`
-  ${space}
-`
 
 OutsideLink.displayName = 'OutsideLink'
 

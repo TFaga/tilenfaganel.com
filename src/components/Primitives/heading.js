@@ -1,11 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
-import { space } from 'styled-system'
-import tag from 'clean-tag'
 
-export const Heading = styled(tag.h2)`
-  ${space}
-`
+import system from 'system-components'
+
+export const Heading = system({
+  is: 'h2'
+},
+  'space'
+)
 
 Heading.displayName = 'Heading'
 

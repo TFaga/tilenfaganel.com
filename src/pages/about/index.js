@@ -2,21 +2,22 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
+import styled from 'styled-components'
 
 import { Image, Link } from '../../components/Primitives'
 import ContactMe from '../../components/ContactMe'
 import Subscribe from '../../components/Subscribe'
 
-const AboutMeSection = Flex.extend`
+const AboutMeSection = styled(Flex)`
   line-height: 1.55rem;
 `
 
-const AboutMeHeader = Flex.extend`
+const AboutMeHeader = styled(Flex)`
   align-items: center;
   justify-content: center;
 `
 
-const AboutMeImageSection = Box.extend`
+const AboutMeImageSection = styled(Box)`
   text-align: right;
 
   @media screen and (max-width: ${props => props.theme.breakpoints[0]}) {
@@ -24,11 +25,11 @@ const AboutMeImageSection = Box.extend`
   }
 `
 
-const AboutMeImage = Image.extend`
+const AboutMeImage = styled(Image)`
   height: 150px;
 `
 
-const AwardsSection = Flex.extend`
+const AwardsSection = styled(Flex)`
   text-align: center;
 `
 
@@ -52,7 +53,7 @@ const AboutPage = ({ data: { me, awardDuke } }) => (
       </AboutMeHeader>
       
       <p>
-        I’m a lead software developer who specialises in Java and cloud-native (API) design.
+        I’m a lead software engineer and consultant who specialises in Java and cloud-native (API) design.
         I plan and create complex software architectures for cloud and integration solutions
         that have helped numerous projects with developing advanced cloud-native applications.
       </p>
@@ -63,7 +64,7 @@ const AboutPage = ({ data: { me, awardDuke } }) => (
         Choice Award for extreme innovation.
       </p>
       <p>
-        A personal passion of mine is to attend at conferences, meetups and events around the world.
+        A personal passion of mine is to explore and attend conferences, meetups and events around the world.
         I am proud to be able to present at some of the best ones around, such as JavaOne and others.
       </p>
       <p>

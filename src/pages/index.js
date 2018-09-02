@@ -6,11 +6,11 @@ import styled from 'styled-components'
 import { InsideLink, Text, Heading, Image } from '../components/Primitives'
 import ContactMe from '../components/ContactMe'
 
-const ProfileSection = Box.extend`
+const ProfileSection = styled(Box)`
   text-align: center;
 `
 
-const ProfileImage = Image.extend`
+const ProfileImage = styled(Image)`
   height: 100px;
   width: 100px;
 `
@@ -62,7 +62,7 @@ class IndexPage extends Component {
 
     return (
       <div>
-        <ProfileSection mb={[4, 5]}>
+        <ProfileSection mb={[3, 4]}>
           <Box mx="auto" width={100}>
             <ProfileImage borderRadius={2}
               src={`//www.gravatar.com/avatar/${me.gravatar}?s=200`}
@@ -72,10 +72,9 @@ class IndexPage extends Component {
           <Box mx="auto" width={[1, 7 / 12]}>
             <h2>Hello, I'm Tilen.</h2>
             <p>
-              Lead Software engineer. Java nut. Author. Creator of KumuluzEE. I
-              live and breathe software development, microservices, APIs and the
-              cloud. Winner of the Java Duke’s Choice Award for extreme
-              innovation.
+              Lead Software Engineer and Consultant. Author. Speaker. Creator of KumuluzEE.
+              Winner of the Java Duke’s Choice Award. I live and breathe software engineering,
+              microservices, automation, APIs and cloud architectures. 
             </p>
           </Box>
           <ContactMe me={me} />

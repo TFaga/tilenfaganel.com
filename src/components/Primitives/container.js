@@ -1,15 +1,13 @@
 import { Box } from 'grid-styled'
-import { maxWidth, space } from 'styled-system'
+import styled from 'styled-components'
 
-export const Container = Box.extend`
-  ${space}
-  ${maxWidth}
+export const Container = styled(Box)`
+  max-width: 1024px;
 `
 
 Container.defaultProps = {
   px: 3,
-  mx: 'auto',
-  maxWidth: 1024
+  mx: 'auto'
 }
 
 Container.displayName = 'Container'
