@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box } from 'grid-styled'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faCode from '@fortawesome/fontawesome-free-solid/faCode'
-import faHeart from '@fortawesome/fontawesome-free-solid/faHeart'
-import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCode } from '@fortawesome/free-solid-svg-icons/faCode'
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee'
 
 import { Container, Span } from '../Primitives'
 

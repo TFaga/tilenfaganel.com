@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box } from 'grid-styled'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faGithub from '@fortawesome/fontawesome-free-brands/faGithub'
-import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
-import faLinkedin from '@fortawesome/fontawesome-free-brands/faLinkedin'
-import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
 
 import { OutsideLink } from '../Primitives'
 

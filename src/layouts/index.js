@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components';
-import fontawesome from '@fortawesome/fontawesome'
+import { config as FontAwesomeConfig } from '@fortawesome/fontawesome-svg-core'
 
 import theme from '../utils/theme'
 
@@ -10,9 +10,9 @@ import { Container } from '../components/Primitives'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import '@fortawesome/fontawesome/styles.css'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
-fontawesome.config.autoAddCss = false 
+FontAwesomeConfig.autoAddCss = false 
 
 const TemplateWrapper = ({ children, data, location }) => (
   <ThemeProvider theme={theme}>

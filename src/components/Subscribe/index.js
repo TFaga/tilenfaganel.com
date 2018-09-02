@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Box } from 'grid-styled'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faRssSquare from '@fortawesome/fontawesome-free-solid/faRssSquare'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRssSquare } from '@fortawesome/free-solid-svg-icons/faRssSquare'
 
 import { Input, Button, InsideLink, Span } from '../Primitives'
 
