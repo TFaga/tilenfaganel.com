@@ -28,8 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/layouts`,
-        name: 'layouts',
+        path: `${__dirname}/src/components`,
+        name: 'components',
       },
     },
     `gatsby-transformer-yaml`,

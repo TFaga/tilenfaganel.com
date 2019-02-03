@@ -27,7 +27,7 @@ export const OutsideLink = (props) => (
       }
       
       if (window.gtag) {
-        gtag('event', 'click', {
+        window.gtag('event', 'click', {
           'event_category': 'Outbound Links',
           'event_label': props.href,
           'transport_type': 'beacon',

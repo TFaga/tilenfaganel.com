@@ -6,7 +6,7 @@ const typography = new Typography({
   baseFontSize: '17px',
   bodyFontFamily: theme.fonts.normal.split(','),
   bodyWeight: theme.fontWeights.normal,
-  overrideThemeStyles: ({ rhythm }, options, styles) => ({
+  overrideThemeStyles: () => ({
     'a': {
       color: theme.colors.link,
       textDecoration: 'none',

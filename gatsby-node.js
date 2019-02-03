@@ -8,13 +8,12 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const path = require("path");
-const slug = require('slug');
 
 const BLOG_POST_SLUG_REGEX = /^\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
 
-  const { createNodeField } = boundActionCreators
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
 
@@ -34,9 +33,9 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
+exports.createPages = ({ actions, graphql }) => {
   
-  const { createPage } = boundActionCreators;
+  const { createPage } = actions;
 
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
 

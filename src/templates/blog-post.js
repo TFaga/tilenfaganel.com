@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { graphql } from "gatsby"
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 import { Box, Flex } from 'grid-styled'
@@ -11,6 +12,7 @@ import { faRedditSquare } from '@fortawesome/free-brands-svg-icons/faRedditSquar
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
 
+import Layout from "../components/Layout"
 import { Heading, ShareLink, InsideLink, Image } from '../components/Primitives'
 import Subscribe from '../components/Subscribe'
 
@@ -187,12 +189,13 @@ const NextPostTitle = styled(Box)`
 class BlogPostTemplate extends Component {
 
   render() {
+    const location = this.props.location
     const post = this.props.data.markdownRemark
-    const { previous, next } = this.props.pathContext
+    const { previous, next } = this.props.pageContext
     const siteUrl = this.props.data.site.siteMetadata.siteUrl
 
     return (
-      <div>
+      <Layout location={location}>
         <Helmet title={`${post.frontmatter.title}`}>
           <meta name="description" content={post.excerpt} />
           <meta property="og:title" content={post.frontmatter.title} />
@@ -221,7 +224,7 @@ class BlogPostTemplate extends Component {
             </Box>
             <Box mb={4} mx={-4}>
               <Img
-                sizes={post.frontmatter.image.childImageSharp.sizes}
+                fluid={post.frontmatter.image.childImageSharp.fluid}
                 alt="cover"
               />
             </Box>
@@ -291,7 +294,7 @@ class BlogPostTemplate extends Component {
             <Subscribe />
           </Box>
         </Flex>
-      </div>
+      </Layout>
     )
   }
 }
@@ -321,8 +324,8 @@ export const pageQuery = graphql`
             resize(width: 1200, quality: 80) {
               src
             }
-            sizes(maxWidth: 784, quality: 80) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 784, quality: 80) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
