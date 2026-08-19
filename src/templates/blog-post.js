@@ -308,35 +308,45 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        timeToRead
-        date(formatString: "DD MMMM, YYYY")
-        rawDate: date
-        image {
-          childImageSharp {
-            resize(width: 1200, quality: 80) {
-              src
-            }
-            fluid(maxWidth: 784, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        author {
-          name
-          gravatar
-          bio
-          twitter
-          facebook
-        }
-      }
-    }
   }
 `
+
+// export const pageQuery = graphql`
+//   query BlogPostBySlug($slug: String!) {
+//     site {
+//       siteMetadata {
+//         siteUrl
+//       }
+//     }
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       excerpt
+//       html
+//       fields {
+//         slug
+//       }
+//       frontmatter {
+//         title
+//         timeToRead
+//         date(formatString: "DD MMMM, YYYY")
+//         rawDate: date
+//         image {
+//           childImageSharp {
+//             resize(width: 1200, quality: 80) {
+//               src
+//             }
+//             fluid(maxWidth: 784, quality: 80) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//         author {
+//           name
+//           gravatar
+//           bio
+//           twitter
+//           facebook
+//         }
+//       }
+//     }
+//   }
+// `

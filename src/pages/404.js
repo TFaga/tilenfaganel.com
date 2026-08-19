@@ -14,8 +14,7 @@ const NotFoundPage = ({ location }) => (
     <NotFoundSection>
       <h1>404</h1>
       <p>
-        You just hit a route that doesn&#39;t exist... the sadness, the
-        loneliness.<br />Do find your way back!
+        You just hit a route that doesn&#39;t exist<br />Do find your way back!
       </p>
       
       <InsideLink to='/'>Go home</InsideLink>

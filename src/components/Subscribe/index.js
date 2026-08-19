@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import { Box } from 'grid-styled'
 import styled from 'styled-components'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRssSquare } from '@fortawesome/free-solid-svg-icons/faRssSquare'
-
-import { Input, Button, InsideLink, Span } from '../Primitives'
+import { Input, Button, Span } from '../Primitives'
 
 const SubscribeSection = styled(Box)`
   text-align: center;
@@ -82,9 +79,6 @@ class Subscribe extends Component {
             </Box>
           }
         </form>
-        <InsideLink to="/feed.xml">
-          <FontAwesomeIcon icon={faRssSquare} size="lg" />
-        </InsideLink>
       </SubscribeSection>
     )
   }

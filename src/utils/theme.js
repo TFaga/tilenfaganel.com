@@ -25,11 +25,9 @@ const fontWeights = {
 }
 
 const fonts = {
-  normal: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
-  mono: 'SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace'
+  normal: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,sans-serif',
+  mono: 'SFMono-Regular,Consolas,Liberation Mono,Courier New,monospace'
 }
-
-// const space = [0, '0.25rem', '0.5rem', '1rem', '2rem', '4rem', '8rem', '16rem', '32rem']
 
 const space = [
   0, 4, 8, 16, 32, 64, 128, 256, 512

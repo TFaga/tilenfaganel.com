@@ -26,18 +26,7 @@ export const OutsideLink = (props) => (
         redirect = false
       }
       
-      if (window.gtag) {
-        window.gtag('event', 'click', {
-          'event_category': 'Outbound Links',
-          'event_label': props.href,
-          'transport_type': 'beacon',
-          'event_callback': () => {
-            if (redirect) {
-              document.location = props.href
-            }
-          }
-        });
-      } else if (redirect) {
+      if (redirect) {
         document.location = props.href
       }
 

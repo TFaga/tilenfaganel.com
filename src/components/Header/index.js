@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'grid-styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 
 import { InsideLink, OutsideLink, Span } from '../Primitives'
@@ -49,15 +49,12 @@ const Header = ({ me }) => (
     <NavItem p={2} fontSize={4}>
       <BrandLink to="/">Tilen <Span color='blue'>Faganel</Span></BrandLink>
     </NavItem>
-    <NavItem p={2} ml="auto">
-      <NavLink to="/">Posts</NavLink>
-    </NavItem>
-    <NavItem p={2} pr={3}>
+    <NavItem p={2} pr={3} ml="auto">
       <NavLink to="/about">About</NavLink>
     </NavItem>
     <NavItem p={2}>
-      <ExternalNavLink href={`https://twitter.com/${me.twitter}`} target='_blank'>
-        <FontAwesomeIcon icon={faTwitter} size="lg" />
+      <ExternalNavLink href={`https://www.linkedin.com/in/${me.linkedin}`} target='_blank'>
+        <FontAwesomeIcon icon={faLinkedin} size="lg" />
       </ExternalNavLink>
     </NavItem>
     <NavItem p={2}>
