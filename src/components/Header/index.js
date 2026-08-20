@@ -19,9 +19,9 @@ const NavItem = styled(Flex)`
 const NavLink = styled(InsideLink)`
   color: ${(props) => props.theme.colors.text};
 
-  :hover,
-  :active,
-  :focus {
+  &:hover,
+  &:active,
+  &:focus {
     color: ${(props) => props.theme.colors.text};
     text-decoration: none;
   }
@@ -34,9 +34,9 @@ const BrandLink = styled(NavLink)`
 const ExternalNavLink = styled(OutsideLink)`
   color: ${(props) => props.theme.colors.text};
 
-  :hover,
-  :active,
-  :focus {
+  &:hover,
+  &:active,
+  &:focus {
     color: ${(props) => props.theme.colors.text};
     text-decoration: none;
   }

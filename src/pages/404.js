@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
@@ -28,29 +27,5 @@ const NotFoundPage = ({ location }) => (
 export default NotFoundPage
 
 export const Head = ({ data, location }) => (
-  <Seo data={data} location={location} pageTitle="404" />
+  <Seo location={location} pageTitle="404" />
 )
-
-export const pageQuery = graphql`
-  query NotFoundQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
-    me: authorsYaml(yamlId: { eq: "tfaga" }) {
-      name
-      twitter
-      facebook
-    }
-    defaultCover: file(relativePath: { eq: "Layout/default-cover.png" }) {
-      childImageSharp {
-        resize(width: 1200, quality: 80) {
-          src
-        }
-      }
-    }
-  }
-`

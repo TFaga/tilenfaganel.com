@@ -1,6 +1,8 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const Seo = ({ data, location, pageTitle }) => {
+const Seo = ({ location, pageTitle }) => {
+  const data = useStaticQuery(seoQuery)
   const site = data.site.siteMetadata
   const title = pageTitle ? `${pageTitle} | ${site.title}` : site.title
 
@@ -55,3 +57,31 @@ const Seo = ({ data, location, pageTitle }) => {
 }
 
 export default Seo
+
+export const seoQuery = graphql`
+  query SeoQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
+    me: authorsYaml(yamlId: { eq: "tfaga" }) {
+      name
+      gravatar
+      github
+      twitter
+      linkedin
+      facebook
+      email
+    }
+    defaultCover: file(relativePath: { eq: "Layout/default-cover.png" }) {
+      childImageSharp {
+        resize(width: 1200, quality: 80) {
+          src
+        }
+      }
+    }
+  }
+`

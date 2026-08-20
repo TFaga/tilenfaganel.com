@@ -49,19 +49,12 @@ class IndexPage extends Component {
 
 export default IndexPage
 
-export const Head = ({ data, location }) => (
-  <Seo data={data} location={location} />
+export const Head = ({ location }) => (
+  <Seo location={location} />
 )
 
 export const pageQuery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
     me: authorsYaml(yamlId: { eq: "tfaga" }) {
       name
       gravatar
@@ -70,13 +63,6 @@ export const pageQuery = graphql`
       linkedin
       facebook
       email
-    }
-    defaultCover: file(relativePath: { eq: "Layout/default-cover.png" }) {
-      childImageSharp {
-        resize(width: 1200, quality: 80) {
-          src
-        }
-      }
     }
   }
 `
