@@ -9,31 +9,27 @@ export const Link = styled.a`
 Link.displayName = 'Link'
 
 export class ShareLink extends Component {
-
   constructor(props) {
     super(props)
 
-    this.sharePage = this.sharePage.bind(this);
+    this.sharePage = this.sharePage.bind(this)
   }
 
   sharePage(e) {
     e.preventDefault()
 
-    const left = (window.screen.width / 2) - (550 / 2),
-          top = (window.screen.height / 2) - (420 / 2);
+    const left = window.screen.width / 2 - 550 / 2,
+      top = window.screen.height / 2 - 420 / 2
 
     window.open(
       this.props.href,
       '',
-      `menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420,top=${top},left=${left}`
-    );
+      `menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=550,height=420,top=${top},left=${left}`,
+    )
   }
 
   render() {
-
-    return (
-      <Link {...this.props} onClick={this.sharePage}/>
-    )
+    return <Link {...this.props} onClick={this.sharePage} />
   }
 }
 

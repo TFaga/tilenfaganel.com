@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
-import { graphql } from "gatsby"
-import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
-import { Box, Flex } from 'grid-styled'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook'
-import { faRedditSquare } from '@fortawesome/free-brands-svg-icons/faRedditSquare'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight'
+import {
+  faTwitter,
+  faLinkedin,
+  faFacebook,
+  faSquareReddit,
+} from '@fortawesome/free-brands-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import Layout from "../components/Layout"
-import { Heading, ShareLink, InsideLink, Image } from '../components/Primitives'
+import Layout from '../components/Layout'
+import {
+  Heading,
+  ShareLink,
+  InsideLink,
+  Image,
+  Box,
+  Flex,
+} from '../components/Primitives'
 import Subscribe from '../components/Subscribe'
 
 const PostContent = styled(Box)`
@@ -26,7 +31,7 @@ const PostContent = styled(Box)`
   code[class*='language-'],
   pre[class*='language-'] {
     background: none;
-    font-family: ${props => props.theme.fonts.mono};
+    font-family: ${(props) => props.theme.fonts.mono};
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -155,22 +160,22 @@ const SharePostSection = styled(Box)`
 `
 
 const PostAuthorSection = styled(Flex)`
-  border-top: 1px solid ${props => props.theme.colors.divider};
+  border-top: 1px solid ${(props) => props.theme.colors.divider};
 
-  @media screen and (max-width: ${props => props.theme.breakpoints[0]}) {
+  @media screen and (max-width: ${(props) => props.theme.breakpoints[0]}) {
     text-align: center;
   }
 `
 
 const PostPaginationSection = styled(Flex)`
-  border-top: 1px solid ${props => props.theme.colors.divider};
+  border-top: 1px solid ${(props) => props.theme.colors.divider};
 `
 
 const PreviousPostTitle = styled(Box)`
   margin-left: -1.2rem;
 
   svg {
-    margin-right: .425rem;
+    margin-right: 0.425rem;
   }
 `
 
@@ -182,12 +187,11 @@ const NextPostTitle = styled(Box)`
   margin-right: -1.2rem;
 
   svg {
-    margin-left: .425rem;
+    margin-left: 0.425rem;
   }
 `
 
 class BlogPostTemplate extends Component {
-
   render() {
     const location = this.props.location
     const post = this.props.data.markdownRemark
@@ -196,24 +200,8 @@ class BlogPostTemplate extends Component {
 
     return (
       <Layout location={location}>
-        <Helmet title={`${post.frontmatter.title}`}>
-          <meta name="description" content={post.excerpt} />
-          <meta property="og:title" content={post.frontmatter.title} />
-          <meta property="og:description" content={post.excerpt} />
-          <meta property="og:type" content="article" />
-          <meta property="og:image" content={`${siteUrl}${post.frontmatter.image.childImageSharp.resize.src}`}/>
-          <meta property="og:updated_time" content={post.frontmatter.rawDate} />
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:title" content={post.frontmatter.title} />
-          <meta name="twitter:description" content={post.excerpt} />
-          <meta name="twitter:image" content={`${siteUrl}${post.frontmatter.image.childImageSharp.resize.src}`} />
-          <meta name="twitter:creator" content={`@${post.frontmatter.author.twitter}`} />
-          <meta property="article:author" content={`https://facebook.com/${post.frontmatter.author.facebook}`} />
-          <meta property="article:published_time" content={post.frontmatter.rawDate} />
-          <meta property="article:modified_time" content={post.frontmatter.rawDate} />
-        </Helmet>
         <Flex>
-          <Box width={[1, 3 / 4]} ml={[0, "12.5%"]}>
+          <Box width={[1, 3 / 4]} ml={[0, '12.5%']}>
             <Box fontSize={0}>
               {post.frontmatter.date}&nbsp; • &nbsp;
               {post.frontmatter.timeToRead} minute read
@@ -223,8 +211,8 @@ class BlogPostTemplate extends Component {
               <em>By {post.frontmatter.author.name}</em>
             </Box>
             <Box mb={4} mx={-4}>
-              <Img
-                fluid={post.frontmatter.image.childImageSharp.fluid}
+              <GatsbyImage
+                image={post.frontmatter.image.childImageSharp.gatsbyImageData}
                 alt="cover"
               />
             </Box>
@@ -232,64 +220,109 @@ class BlogPostTemplate extends Component {
             <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
 
             <SharePostSection mt={3} pt={3}>
-              <ShareLink href={`https://twitter.com/intent/tweet?url=${siteUrl}${post.fields.slug}&text=${post.frontmatter.title}&via=${post.frontmatter.author.twitter}`} mx={1} target="_blank">
-                <FontAwesomeIcon icon={faTwitter} size="lg" />
+              <ShareLink
+                href={`https://twitter.com/intent/tweet?url=${siteUrl}${post.fields.slug}&text=${post.frontmatter.title}&via=${post.frontmatter.author.twitter}`}
+                mx={1}
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  size="lg"
+                  className="fa-width-auto"
+                />
               </ShareLink>
-              <ShareLink href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteUrl}${post.fields.slug}&title=${post.frontmatter.title}&summary=${post.excerpt}&source=${siteUrl}`} mx={1} target="_blank">
-                <FontAwesomeIcon icon={faLinkedin} size="lg" />
+              <ShareLink
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${siteUrl}${post.fields.slug}&title=${post.frontmatter.title}&summary=${post.excerpt}&source=${siteUrl}`}
+                mx={1}
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  size="lg"
+                  className="fa-width-auto"
+                />
               </ShareLink>
-              <ShareLink href={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${post.fields.slug}`} mx={1} target="_blank">
-                <FontAwesomeIcon icon={faFacebook} size="lg" />
+              <ShareLink
+                href={`https://www.facebook.com/sharer/sharer.php?u=${siteUrl}${post.fields.slug}`}
+                mx={1}
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  size="lg"
+                  className="fa-width-auto"
+                />
               </ShareLink>
-              <ShareLink href={`http://www.reddit.com/submit?url=${siteUrl}${post.fields.slug}&title=${post.frontmatter.title}`} mx={1} target="_blank">
-                <FontAwesomeIcon icon={faRedditSquare} size="lg" />
+              <ShareLink
+                href={`http://www.reddit.com/submit?url=${siteUrl}${post.fields.slug}&title=${post.frontmatter.title}`}
+                mx={1}
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={faSquareReddit}
+                  size="lg"
+                  className="fa-width-auto"
+                />
               </ShareLink>
             </SharePostSection>
 
-            <PostAuthorSection fontSize={0} mt={4} pt={4} px={[0, 5]} flexWrap={['wrap', 'nowrap']}>
+            <PostAuthorSection
+              fontSize={0}
+              mt={4}
+              pt={4}
+              px={[0, 5]}
+              flexWrap={['wrap', 'nowrap']}
+            >
               <Box flex={['0 0 100%', '0 0 auto']}>
-                <AuthorImage borderRadius={2} src={`//www.gravatar.com/avatar/${post.frontmatter.author.gravatar}?s=140`} />
+                <AuthorImage
+                  borderRadius={2}
+                  src={`//www.gravatar.com/avatar/${post.frontmatter.author.gravatar}?s=140`}
+                />
               </Box>
               <Box ml={[0, 4]}>
                 <Heading.h4 mb={2}>{post.frontmatter.author.name}</Heading.h4>
                 <p>{post.frontmatter.author.bio}</p>
               </Box>
             </PostAuthorSection>
-      
-            { (previous || next) &&
+
+            {(previous || next) && (
               <PostPaginationSection mt={4} pt={4}>
-                <Box width={1/2}>
-                  { previous && 
+                <Box width={1 / 2}>
+                  {previous && (
                     <div>
-                      <Box fontSize={0}>
-                        Previous
-                      </Box>
+                      <Box fontSize={0}>Previous</Box>
                       <PreviousPostTitle>
                         <InsideLink to={previous.fields.slug}>
-                          <FontAwesomeIcon icon={faArrowLeft} size="sm" />
+                          <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            size="sm"
+                            className="fa-width-auto"
+                          />
                           {previous.frontmatter.title}
                         </InsideLink>
                       </PreviousPostTitle>
                     </div>
-                  }
+                  )}
                 </Box>
-                <NextPostSection width={1/2}>
-                  { next && 
+                <NextPostSection width={1 / 2}>
+                  {next && (
                     <div>
-                      <Box fontSize={0}>
-                        Next
-                      </Box>
+                      <Box fontSize={0}>Next</Box>
                       <NextPostTitle>
                         <InsideLink to={next.fields.slug}>
                           {next.frontmatter.title}
-                          <FontAwesomeIcon icon={faArrowRight} size="sm" />
+                          <FontAwesomeIcon
+                            icon={faArrowRight}
+                            size="sm"
+                            className="fa-width-auto"
+                          />
                         </InsideLink>
                       </NextPostTitle>
                     </div>
-                  }
+                  )}
                 </NextPostSection>
               </PostPaginationSection>
-            }
+            )}
 
             <Subscribe />
           </Box>
@@ -300,16 +333,6 @@ class BlogPostTemplate extends Component {
 }
 
 export default BlogPostTemplate
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-  }
-`
 
 // export const pageQuery = graphql`
 //   query BlogPostBySlug($slug: String!) {
@@ -334,9 +357,7 @@ export const pageQuery = graphql`
 //             resize(width: 1200, quality: 80) {
 //               src
 //             }
-//             fluid(maxWidth: 784, quality: 80) {
-//               ...GatsbyImageSharpFluid
-//             }
+//             gatsbyImageData(layout: CONSTRAINED, maxWidth: 784, quality: 80)
 //           }
 //         }
 //         author {

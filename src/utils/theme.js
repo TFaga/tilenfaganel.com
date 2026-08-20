@@ -1,7 +1,4 @@
-import { theme } from 'grid-styled'
-
 const colors = {
-  ...theme.colors,
   text: 'hsla(0,0%,0%,0.8)',
   textLight: '#888',
   link: '#2d8fd5',
@@ -12,35 +9,46 @@ const colors = {
   blue: '#039',
   blueLight: '#2d8fd5',
   green: '#15c578',
-  red: '#b00e23'
+  red: '#b00e23',
 }
 
-const radii = [
-  0, '2rem', '4rem', '8rem'
-]
+const breakpoints = ['40em', '52em', '64em']
+
+const radii = [0, '2rem', '4rem', '8rem']
 
 const fontWeights = {
   normal: 300,
-  bold: 700
+  bold: 700,
 }
 
 const fonts = {
-  normal: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,sans-serif',
-  mono: 'SFMono-Regular,Consolas,Liberation Mono,Courier New,monospace'
+  normal: '-apple-system,BlinkMacSystemFont,Helvetica Neue,Inter,sans-serif',
+  mono: 'SFMono-Regular,Consolas,Liberation Mono,Courier New,monospace',
 }
 
-const space = [
-  0, 4, 8, 16, 32, 64, 128, 256, 512
+const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
+
+const fontSizes = [
+  '0.75rem',
+  '0.875rem',
+  '1rem',
+  '1.25rem',
+  '1.5rem',
+  '2rem',
+  '3rem',
+  '4rem',
+  '6rem',
+  '8rem',
 ]
 
-const fontSizes = ['0.75rem', '0.875rem', '1rem', '1.25rem', '1.5rem', '2rem', '3rem', '4rem', '6rem', '8rem'];
-
-export default {
-  ...theme,
+const theme = {
+  breakpoints,
   colors,
   radii,
   fontWeights,
   fonts,
   space,
-  fontSizes
+  fontSizes,
 }
+
+export default theme

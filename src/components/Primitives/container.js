@@ -1,5 +1,6 @@
-import { Box } from 'grid-styled'
 import styled from 'styled-components'
+
+import { Box } from './box'
 
 export const Container = styled(Box)`
   max-width: 1024px;
@@ -7,7 +8,7 @@ export const Container = styled(Box)`
 
 Container.defaultProps = {
   px: 3,
-  mx: 'auto'
+  mx: 'auto',
 }
 
 Container.displayName = 'Container'

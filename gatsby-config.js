@@ -8,8 +8,8 @@ module.exports = {
     "MarkdownRemark.frontmatter.author": `AuthorsYaml`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

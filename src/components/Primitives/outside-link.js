@@ -8,9 +8,9 @@ const OutsideLinkBase = styled.a`
 export const OutsideLink = (props) => (
   <OutsideLinkBase
     {...props}
-    onClick={e => {
+    onClick={(e) => {
       let redirect = true
-      
+
       if (
         e.button !== 0 ||
         e.altKey ||
@@ -21,11 +21,11 @@ export const OutsideLink = (props) => (
       ) {
         redirect = false
       }
-      
+
       if (props.target && props.target.toLowerCase() !== `_self`) {
         redirect = false
       }
-      
+
       if (redirect) {
         document.location = props.href
       }

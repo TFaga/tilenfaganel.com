@@ -7,18 +7,18 @@ const typography = new Typography({
   bodyFontFamily: theme.fonts.normal.split(','),
   bodyWeight: theme.fontWeights.normal,
   overrideThemeStyles: () => ({
-    'a': {
+    a: {
       color: theme.colors.link,
       textDecoration: 'none',
     },
     'a:active,a:hover': {
-      outline: 0
+      outline: 0,
     },
     'a:hover,a:focus': {
       color: theme.colors.linkHover,
-      textDecoration: 'underline'
-    }
-  })
+      textDecoration: 'underline',
+    },
+  }),
 })
 
 export default typography

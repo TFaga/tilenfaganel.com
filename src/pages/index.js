@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { graphql } from "gatsby"
-import { Box } from 'grid-styled'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import Layout from "../components/Layout"
-import { Image } from '../components/Primitives'
+import Layout from '../components/Layout'
+import Seo from '../components/Seo'
+import { Image, Box } from '../components/Primitives'
 import ContactMe from '../components/ContactMe'
 
 const ProfileSection = styled(Box)`
@@ -25,7 +25,8 @@ class IndexPage extends Component {
       <Layout location={location}>
         <ProfileSection mb={[3, 4]} mt={[5]}>
           <Box mx="auto" width={100}>
-            <ProfileImage borderRadius={2}
+            <ProfileImage
+              borderRadius={2}
               src={`//www.gravatar.com/avatar/${me.gravatar}?s=200`}
               alt="author"
             />
@@ -33,9 +34,10 @@ class IndexPage extends Component {
           <Box mx="auto" width={[1, 7 / 12]}>
             <h2>Hello, I'm Tilen.</h2>
             <p>
-              Lead Software Engineer and Consultant. Author. Speaker. Creator of KumuluzEE.
-              Winner of the Java Duke’s Choice Award. I live and breathe software engineering,
-              microservices, automation, APIs and cloud architectures. 
+              Lead Software Engineer and Consultant. Author. Speaker. Creator of
+              KumuluzEE. Winner of the Java Duke’s Choice Award. I live and
+              breathe software engineering, microservices, automation, APIs and
+              cloud architectures.
             </p>
           </Box>
           <ContactMe me={me} />
@@ -47,14 +49,34 @@ class IndexPage extends Component {
 
 export default IndexPage
 
+export const Head = ({ data, location }) => (
+  <Seo data={data} location={location} />
+)
+
 export const pageQuery = graphql`
   query IndexQuery {
-    me: authorsYaml(id: { eq: "tfaga" }) {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
+    me: authorsYaml(yamlId: { eq: "tfaga" }) {
+      name
       gravatar
       github
       twitter
       linkedin
+      facebook
       email
+    }
+    defaultCover: file(relativePath: { eq: "Layout/default-cover.png" }) {
+      childImageSharp {
+        resize(width: 1200, quality: 80) {
+          src
+        }
+      }
     }
   }
 `

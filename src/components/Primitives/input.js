@@ -5,7 +5,7 @@ export const Input = styled.input`
   ${space}
   ${width}
 
-  box-shadow: ${props => props.theme.colors.border} 0 0 0 1px inset;
+  box-shadow: ${(props) => props.theme.colors.border} 0 0 0 1px inset;
   border-radius: 4px;
   border-width: 0;
   vertical-align: middle;
@@ -14,11 +14,11 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 0 1px ${props => props.theme.colors.blueLight};
+    box-shadow: inset 0 0 0 1px ${(props) => props.theme.colors.blueLight};
   }
 
   &:disabled {
-    opacity: 1/4
+    opacity: 1/4;
   }
 `
 

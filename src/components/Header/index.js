@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex } from 'grid-styled'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import { InsideLink, OutsideLink, Span } from '../Primitives'
+import { InsideLink, OutsideLink, Span, Flex } from '../Primitives'
 
 const Nav = styled(Flex)`
   min-height: 60px;
@@ -19,12 +17,12 @@ const NavItem = styled(Flex)`
 `
 
 const NavLink = styled(InsideLink)`
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
 
   :hover,
   :active,
   :focus {
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     text-decoration: none;
   }
 `
@@ -34,12 +32,12 @@ const BrandLink = styled(NavLink)`
 `
 
 const ExternalNavLink = styled(OutsideLink)`
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
 
   :hover,
   :active,
   :focus {
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     text-decoration: none;
   }
 `
@@ -47,19 +45,28 @@ const ExternalNavLink = styled(OutsideLink)`
 const Header = ({ me }) => (
   <Nav px={2} mx="auto">
     <NavItem p={2} fontSize={4}>
-      <BrandLink to="/">Tilen <Span color='blue'>Faganel</Span></BrandLink>
+      <BrandLink to="/">
+        Tilen <Span color="blue">Faganel</Span>
+      </BrandLink>
     </NavItem>
     <NavItem p={2} pr={3} ml="auto">
       <NavLink to="/about">About</NavLink>
     </NavItem>
     <NavItem p={2}>
-      <ExternalNavLink href={`https://www.linkedin.com/in/${me.linkedin}`} target='_blank'>
-        <FontAwesomeIcon icon={faLinkedin} size="lg" />
+      <ExternalNavLink
+        href={`https://www.linkedin.com/in/${me.linkedin}`}
+        target="_blank"
+      >
+        <FontAwesomeIcon
+          icon={faLinkedin}
+          size="lg"
+          className="fa-width-auto"
+        />
       </ExternalNavLink>
     </NavItem>
     <NavItem p={2}>
-      <ExternalNavLink href={`https://github.com/${me.github}`} target='_blank'>
-        <FontAwesomeIcon icon={faGithub} size="lg" />
+      <ExternalNavLink href={`https://github.com/${me.github}`} target="_blank">
+        <FontAwesomeIcon icon={faGithub} size="lg" className="fa-width-auto" />
       </ExternalNavLink>
     </NavItem>
   </Nav>

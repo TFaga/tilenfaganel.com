@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import { Box } from 'grid-styled'
 import styled from 'styled-components'
 
-import { Input, Button, Span } from '../Primitives'
+import { Input, Button, Span, Box } from '../Primitives'
 
 const SubscribeSection = styled(Box)`
   text-align: center;
-  border-top: 1px solid ${props => props.theme.colors.divider};
+  border-top: 1px solid ${(props) => props.theme.colors.divider};
 `
 
-const encode = data =>
+const encode = (data) =>
   Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
 
 class Subscribe extends Component {
@@ -21,22 +20,24 @@ class Subscribe extends Component {
     this.state = {
       data: {},
       submitted: false,
-      error: false
+      error: false,
     }
   }
 
-  handleChange = e => {
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value } })
+  handleChange = (e) => {
+    this.setState({
+      data: { ...this.state.data, [e.target.name]: e.target.value },
+    })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'subscribe', ...this.state.data }),
     })
       .then(() => this.setState({ submitted: true, error: false }))
-      .catch(error => this.setState({ error: true }))
+      .catch((error) => this.setState({ error: true }))
 
     e.preventDefault()
   }
@@ -68,16 +69,16 @@ class Subscribe extends Component {
             Subscribe
           </Button>
 
-          { this.state.submitted &&
+          {this.state.submitted && (
             <Box fontSize={0}>
-              <Span color='green'>Subscribed!</Span>
+              <Span color="green">Subscribed!</Span>
             </Box>
-          }
-          { this.state.error &&
+          )}
+          {this.state.error && (
             <Box fontSize={0}>
-              <Span color='red'>An error occured!</Span>
+              <Span color="red">An error occured!</Span>
             </Box>
-          }
+          )}
         </form>
       </SubscribeSection>
     )
