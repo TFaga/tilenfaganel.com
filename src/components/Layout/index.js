@@ -42,7 +42,7 @@ const layoutQuery = graphql`
       name
       twitter
       github
-      facebook
+      linkedin
     }
   }
 `
