@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faTwitter,
+  faXTwitter,
   faLinkedin,
   faFacebook,
   faSquareReddit,
@@ -221,12 +221,12 @@ class BlogPostTemplate extends Component {
 
             <SharePostSection mt={3} pt={3}>
               <ShareLink
-                href={`https://twitter.com/intent/tweet?url=${siteUrl}${post.fields.slug}&text=${post.frontmatter.title}&via=${post.frontmatter.author.twitter}`}
+                href={`https://x.com/intent/tweet?url=${siteUrl}${post.fields.slug}&text=${post.frontmatter.title}&via=${post.frontmatter.author.twitter}`}
                 mx={1}
                 target="_blank"
               >
                 <FontAwesomeIcon
-                  icon={faTwitter}
+                  icon={faXTwitter}
                   size="lg"
                   className="fa-width-auto"
                 />

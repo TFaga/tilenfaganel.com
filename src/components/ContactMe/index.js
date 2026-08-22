@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
-  faTwitter,
+  faXTwitter,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -19,12 +19,8 @@ const ContactMe = ({ me, ...props }) => (
     >
       <FontAwesomeIcon icon={faGithub} size="lg" className="fa-width-auto" />
     </OutsideLink>
-    <OutsideLink
-      href={`https://twitter.com/${me.twitter}`}
-      mx={1}
-      target="_blank"
-    >
-      <FontAwesomeIcon icon={faTwitter} size="lg" className="fa-width-auto" />
+    <OutsideLink href={`https://x.com/${me.twitter}`} mx={1} target="_blank">
+      <FontAwesomeIcon icon={faXTwitter} size="lg" className="fa-width-auto" />
     </OutsideLink>
     <OutsideLink
       href={`https://www.linkedin.com/in/${me.linkedin}`}
