@@ -1,15 +1,15 @@
 const colors = {
-  text: 'hsla(0,0%,0%,0.8)',
-  textLight: '#888',
-  link: '#2d8fd5',
-  linkHover: '#006fbe',
-  divider: '#f5f3f7',
-  border: '#ddd',
-  white: '#fff',
-  blue: '#039',
-  blueLight: '#2d8fd5',
-  green: '#15c578',
-  red: '#b00e23',
+  text: 'var(--text)',
+  textLight: 'var(--text-light)',
+  link: 'var(--link)',
+  linkHover: 'var(--link-hover)',
+  divider: 'var(--divider)',
+  border: 'var(--border)',
+  white: 'var(--surface)',
+  blue: 'var(--accent-blue)',
+  blueLight: 'var(--accent-blue-light)',
+  green: 'var(--accent-green)',
+  red: 'var(--accent-red)',
 }
 
 const breakpoints = ['40em', '52em', '64em']
